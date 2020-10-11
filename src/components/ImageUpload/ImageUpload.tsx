@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { makeStyles, withStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { useDropzone } from 'react-dropzone';
@@ -54,6 +54,13 @@ function ImageUpload() {
   const [validFile, setValidFile] = useState(false);
 
   const classes = useStyles();
+
+  useEffect(() => {
+    if(!validFile){
+      console.log('validFile is none');
+      sendMessage('close-image');
+    }
+  },[validFile]);
 
   const onDrop = useCallback((acceptedFiles) => {
     console.log('acceptedFiles ->', acceptedFiles);
