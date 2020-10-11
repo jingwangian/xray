@@ -53,6 +53,10 @@ The React part is used to build a webpage app as following:
 
 ![alt text](public/images/upload.png "Upload")
 
+The app can load the image by click the `Upload` button. Then an thumbnail image will replace the button postion to show there.
+
+![alt text](public/images/load_image.png "thumbnail")
+
 You can start the react app by invoke `yarn react-start` command.
 
 ##### The following are all commands related with the react app, you can find them in the package.json file
@@ -68,7 +72,16 @@ The src and public contains the react app code.
 ### Electron
 The electron is used to package the react webpage app into a desktop app. So you can install it as a desktop app and run it in local machine.
 
-There is a electron.js file in the `public` directory which is used to build the desktop app.
+There is a electron.js file in the `public` directory which is used to build the desktop app. 
+
+There are 2 windows will be created by the electron. 
+
+* The main window is to load the react app and show it.
+
+* The 2nd window is to show the image when the mouse is over the thumbnail image in the main window.
+
+The final page is like:
+![alt text](public/images/show_image.png "show image")
 
 #### Start the electron app
 ```

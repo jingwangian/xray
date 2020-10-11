@@ -14,7 +14,10 @@ const environment = {
   transparent: true
 };
 
-let win;
+//The main window
+let win; 
+
+//The window to show the image
 let win2;
 
 function createWindow() {

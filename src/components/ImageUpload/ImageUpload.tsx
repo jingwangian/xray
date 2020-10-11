@@ -39,9 +39,18 @@ const ColorButton = withStyles((theme: Theme) => ({
   },
 }))(Button);
 
+/**
+ * This function is used to create the ImageUpload Component
+ *
+ * @returns ImageUpload Component
+ */
 function ImageUpload() {
   const [fileLoaded, setFileLoaded] = useState(false);
+  
+  // Keep the image file url
   const [fileUrl, setFileUrl] = useState<string | null>(null);
+
+  // Invalid image file will not trigger to send message
   const [validFile, setValidFile] = useState(false);
 
   const classes = useStyles();

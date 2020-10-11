@@ -16,6 +16,12 @@ const useStyles = makeStyles((theme) => ({
   logobar: {},
 }));
 
+/**
+ * This function is used to create the LogoBar component
+ *
+ * @export
+ * @returns LogoBar component
+ */
 export default function LogoBar() {
   const classes = useStyles();
 
