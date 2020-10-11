@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Electron Second Window</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1">
+        <style>
+            .image {
+                border-radius: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+          <img class="image" id="view" src="" alt="jacket" width="100%" height="100%">
+        </div>
+        <script>
+            const { ipcRenderer } = require('electron');
+
+            ipcRenderer.on('action-update-image', (event, arg) => {
+                let img = document.getElementById("view");
+                img.src=arg;
+            });
+        </script>
+    </body>
+</html>
