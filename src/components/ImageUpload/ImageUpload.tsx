@@ -3,7 +3,7 @@ import { makeStyles, withStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { useDropzone } from 'react-dropzone';
 import { purple } from '@material-ui/core/colors';
-import {sendMessage} from '../../utils/message';
+import { sendMessage } from '../../utils/message';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -46,7 +46,7 @@ const ColorButton = withStyles((theme: Theme) => ({
  */
 function ImageUpload() {
   const [fileLoaded, setFileLoaded] = useState(false);
-  
+
   // Keep the image file url
   const [fileUrl, setFileUrl] = useState<string | null>(null);
 
