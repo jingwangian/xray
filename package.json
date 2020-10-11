@@ -9,6 +9,7 @@
   "description": "This is a small app used to upload/view the image file.",
   "build": {
     "appId": "com.electron.jingwangian",
+    "productName": "ImageView",
     "mac": {
       "category": "public.app-category.business"
     },
