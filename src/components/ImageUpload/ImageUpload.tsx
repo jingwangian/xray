@@ -3,7 +3,7 @@ import { makeStyles, withStyles, Theme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { useDropzone } from 'react-dropzone';
 import { purple } from '@material-ui/core/colors';
-import { sendMessage } from '../../utils/message';
+import {sendMessage as sendMessageFn} from '../../utils/message';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -39,12 +39,15 @@ const ColorButton = withStyles((theme: Theme) => ({
   },
 }))(Button);
 
+interface ImageProps {
+  sendMessage?: typeof sendMessageFn | null,
+}
 /**
  * This function is used to create the ImageUpload Component
  *
  * @returns ImageUpload Component
  */
-function ImageUpload() {
+function ImageUpload(props:ImageProps) {
   const [fileLoaded, setFileLoaded] = useState(false);
 
   // Keep the image file url
@@ -55,10 +58,11 @@ function ImageUpload() {
 
   const classes = useStyles();
 
+  const {sendMessage} = props;
+
   useEffect(() => {
     if(!validFile){
-      console.log('validFile is none');
-      sendMessage('close-image');
+      if(sendMessage) sendMessage('close-image');
     }
   },[validFile]);
 
@@ -75,13 +79,13 @@ function ImageUpload() {
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const handleMouseOver = () => {
-    if (validFile) {
+    if (validFile && sendMessage) {
       sendMessage('show-image', fileUrl);
     }
   };
 
   const handleMouseLeave = () => {
-    if (validFile) {
+    if (validFile && sendMessage) {
       sendMessage('close-image');
     }
   };
